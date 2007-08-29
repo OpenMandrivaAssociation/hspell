@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %_bindir/*
 %_datadir/hspell/*.wgz*   
-%_mandir/man*/*.bz2
+%_mandir/man*/*
 
 %files -n %{lib_name}-devel
 %defattr(-, root, root)
