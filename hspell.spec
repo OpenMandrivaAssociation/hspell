@@ -8,7 +8,6 @@ Release:       %mkrel 1
 Group:         Text tools
 Source0:       %{name}-%{version}.tar.bz2
 URL:           http://www.ivrix.org.il/projects/spell-checker/
-BuildRoot:     %{_tmppath}/%{name}-%{version}-root
 License:       LGPL
 BuildRequires: automake1.8
 Requires:		%{lib_name} = %{version}-%{release}	
