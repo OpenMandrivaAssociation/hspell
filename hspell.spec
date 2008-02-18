@@ -1,7 +1,7 @@
 %define lib_name %mklibname %{name} %{lib_major}
 %define lib_major 0
 
-Summary:     	Hspell project is a free Hebrew linguistic project. 
+Summary:     	Free Hebrew linguistic project. 
 Name:          hspell
 Version:       1.0
 Release:       %mkrel 1
