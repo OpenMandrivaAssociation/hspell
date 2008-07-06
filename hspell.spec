@@ -2,7 +2,7 @@
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
-Summary:	Free Hebrew linguistic project. 
+Summary:	Free Hebrew linguistic project
 Name:		hspell
 Version:	1.0
 Release:	%mkrel 4
@@ -37,8 +37,8 @@ Group:		Text tools
 Shared library files for the hspell package.
 
 %package -n	%{develname}
+Summary:	Development files for hspell
 Group:		Development/Other
-Summary:	Development files for aspell
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 Provides:	libhspell-devel = %{version}-%{release}
