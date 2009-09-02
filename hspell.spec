@@ -5,7 +5,7 @@
 Summary:	Free Hebrew linguistic project
 Name:		hspell
 Version:	1.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		Text tools
 License:	LGPL
 URL:		http://www.ivrix.org.il/projects/spell-checker/
