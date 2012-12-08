@@ -5,7 +5,7 @@
 Summary:	Free Hebrew linguistic project
 Name:		hspell
 Version:	1.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Text tools
 License:	LGPL
 URL:		http://www.ivrix.org.il/projects/spell-checker/
@@ -87,3 +87,63 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %_includedir/hspell.h
 %_includedir/linginfo.h
+
+
+%changelog
+* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.1-3mdv2011.0
++ Revision: 665464
+- mass rebuild
+
+* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1.1-2mdv2011.0
++ Revision: 605879
+- rebuild
+
+* Sat Jan 02 2010 Frederik Himpe <fhimpe@mandriva.org> 1.1-1mdv2010.1
++ Revision: 485100
+- update to new version 1.1
+
+* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 1.0-6mdv2010.0
++ Revision: 425152
+- rebuild
+
+* Sat Mar 07 2009 Antoine Ginies <aginies@mandriva.com> 1.0-5mdv2009.1
++ Revision: 351236
+- rebuild
+
+* Sun Jul 06 2008 Oden Eriksson <oeriksson@mandriva.com> 1.0-4mdv2009.0
++ Revision: 232202
+- fix summary-ended-with-dot
+- fix devel package naming
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - rebuild
+    - fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Dec 17 2007 Thierry Vignaud <tv@mandriva.org> 1.0-1mdv2008.1
++ Revision: 126847
+- kill re-definition of %%buildroot on Pixel's request
+- do not hardcode bz2 extension
+- replace %%_datadir/man by %%_mandir!
+
+
+* Thu Nov 16 2006 Laurent Montel <lmontel@mandriva.com> 1.0-1mdv2007.0
++ Revision: 85054
+- 1.0
+- Import hspell
+
+* Thu Feb 02 2006 Laurent MONTEL <lmontel@mandriva.com> 0.9-3
+- Fix flags
+
+* Thu Feb 02 2006 Laurent MONTEL <lmontel@mandriva.com> 0.9-2
+- Fix compile under x86_64
+
+* Mon Dec 12 2005 Laurent MONTEL <lmontel@mandriva.com> 0.9-1
+- initial spec
+
