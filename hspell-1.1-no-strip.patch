@@ -1,0 +1,11 @@
+diff -urN hspell-1.1/Makefile.in hspell-1.1-patched/Makefile.in
+--- hspell-1.1/Makefile.in	2009-12-31 19:20:57.000000000 +1000
++++ hspell-1.1-patched/Makefile.in	2013-02-21 22:35:01.381338554 +1100
+@@ -116,7 +116,6 @@
+ 
+ install: all
+ 	test -d $(DESTDIR)$(BIN) || mkdir -m 755 -p $(DESTDIR)$(BIN)
+-	$(STRIP) $(HSPELL_EXECUTABLE)
+ 	-rm -f $(DESTDIR)$(BIN)/$(HSPELL_EXECUTABLE)
+ 	cp $(HSPELL_EXECUTABLE) $(DESTDIR)$(BIN)/$(HSPELL_EXECUTABLE)
+ 	chmod 755 $(DESTDIR)$(BIN)/$(HSPELL_EXECUTABLE)
