@@ -1,11 +1,12 @@
 %define major 0
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
+%define debug_package          %{nil}
 
 Summary:	Free Hebrew linguistic project
 Name:		hspell
 Version:	1.1
-Release:	%mkrel 4
+Release:	5
 Group:		Text tools
 License:	LGPL
 URL:		http://www.ivrix.org.il/projects/spell-checker/
