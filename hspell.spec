@@ -1,15 +1,16 @@
+%define major	0
+%define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
 Summary:	Free Hebrew linguistic project
 Name:		hspell
-Version:	1.1
-Release:	6
+Version:	1.2
+Release:	1
 Group:		Text tools
-License:	LGPL
-URL:		http://www.ivrix.org.il/projects/spell-checker/
-Source0:	%{name}-%{version}.tar.bz2
+License:	AGPLv3
+Url:		http://www.ivrix.org.il/projects/spell-checker/
+Source0:	http://hspell.ivrix.org.il/%{name}-%{version}.tar.gz
 Patch0:		hspell-1.1-no-strip.patch
-BuildRequires:	automake1.8
 
 %description
 The Hspell project is a free Hebrew linguistic project.
@@ -32,11 +33,18 @@ synthesis, and much much more. The availability of a free basis will
 hopefully encourage free development on top of it, to the benefit of
 the general Hebrew-speaking population.
 
+%package -n %{libname}
+Summary:	Shared library files for hspell
+Group:		Text tools
+
+%description -n %{libname}
+Shared library files for the hspell package.
+
 %package -n	%{devname}
 Summary:	Development files for hspell
 Group:		Development/Other
-Provides:	hspell-devel = %{version}-%{release}
-Obsoletes:	%{_lib}hspell0 < 1.1-6
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 Conflicts:	%{_lib}hspell0 < 1.1-6
 
 %description -n	%{devname}
@@ -44,11 +52,15 @@ Development headers, and files for development from the hspell package.
 
 %prep
 %setup -q
-%patch0 -p1
+%apply_patches
 
 %build
 CFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC" FFLAGS="optflags -fPIC" \
-%configure2_5x --enable-fatverb --enable-fatverb --enable-shared --disable-static
+%configure2_5x \
+	--enable-fatverb \
+	--enable-fatverb \
+	--enable-shared
+
 %make
 
 %install
@@ -57,9 +69,14 @@ CFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC" FFLAGS="optflags -fPIC" 
 %files
 %{_bindir}/*
 %{_datadir}/hspell/*.wgz*
-%{_mandir}/man*/*
+%{_mandir}/man1/*
+%{_mandir}/man3/*
+
+%files -n %{libname}
+%{_libdir}/libhspell.so.%{major}*
 
 %files -n %{devname}
+%{_libdir}/libhspell.so
 %{_libdir}/libhspell.a
 %{_includedir}/hspell.h
 %{_includedir}/linginfo.h
