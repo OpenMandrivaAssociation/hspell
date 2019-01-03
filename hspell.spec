@@ -4,13 +4,18 @@
 
 Summary:	Free Hebrew linguistic project
 Name:		hspell
-Version:	1.2
-Release:	14
+Version:	1.4
+Release:	1
 Group:		Text tools
 License:	AGPLv3
 Url:		http://www.ivrix.org.il/projects/spell-checker/
 Source0:	http://hspell.ivrix.org.il/%{name}-%{version}.tar.gz
-Patch0:		hspell-1.1-no-strip.patch
+Patch1:		hspell-1.2-perl-5.26.patch
+BuildRequires:  pkgconfig(zlib)
+BuildRequires:  locales-he
+BuildRequires:  hunspell
+BuildRequires:  pkgconfig(hunspell)
+Requires:	%{libname} = %{EVRD}
 
 %description
 The Hspell project is a free Hebrew linguistic project.
@@ -51,20 +56,18 @@ Conflicts:	%{_lib}hspell0 < 1.1-6
 Development headers, and files for development from the hspell package.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 CFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC" FFLAGS="optflags -fPIC" \
-%configure2_5x \
-	--enable-fatverb \
+%configure \
 	--enable-fatverb \
 	--enable-shared
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %{_bindir}/*
