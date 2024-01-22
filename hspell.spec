@@ -10,6 +10,8 @@ Group:		Text tools
 License:	AGPLv3
 Url:		http://www.ivrix.org.il/projects/spell-checker/
 Source0:	http://hspell.ivrix.org.il/%{name}-%{version}.tar.gz
+# Added as Source: rather than Patch: so it can be applied conditionally
+Source1:	hspell-1.4-crosscompile.patch
 Patch1:		hspell-1.2-perl-5.26.patch
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  locales-he
@@ -57,14 +59,17 @@ Development headers, and files for development from the hspell package.
 
 %prep
 %autosetup -p1
+%if %{cross_compiling}
+patch -p1 -b -z .xc~ <%{S:1}
+%endif
 
 %build
-CFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC" FFLAGS="optflags -fPIC" \
+CFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC" \
 %configure \
 	--enable-fatverb \
 	--enable-shared
 
-%make_build
+%make_build HOSTCC=clang
 
 %install
 %make_install

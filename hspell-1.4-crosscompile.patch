@@ -1,0 +1,14 @@
+diff -up hspell-1.4/Makefile.in.omv~ hspell-1.4/Makefile.in
+--- hspell-1.4/Makefile.in.omv~	2024-01-22 22:06:04.430531660 +0000
++++ hspell-1.4/Makefile.in	2024-01-22 22:06:42.290565757 +0000
+@@ -223,8 +223,8 @@ libhspell.lo: prefixes.c
+ prefixes.c: genprefixes.pl PrefixBits.pl
+ 	$(PERL) -w ./genprefixes.pl >prefixes.c
+ 
+-find_sizes: find_sizes.o dict_radix.o
+-	$(CC) $(CFLAGS) $(LDFLAGS) -o find_sizes find_sizes.o dict_radix.o $(LIBS)
++find_sizes: find_sizes.c dict_radix.c
++	$(HOSTCC) $(HOSTCFLAGS) $(HOSTLDFLAGS) -o find_sizes find_sizes.c dict_radix.c $(LIBS)
+ 
+ # *.hif, "hspell inflection format" files, list all the possible inflections
+ # and information on how each word was derived. Some are the outputs of the
