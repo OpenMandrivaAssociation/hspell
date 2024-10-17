@@ -8,7 +8,7 @@ Version:	1.4
 Release:	2
 Group:		Text tools
 License:	AGPLv3
-Url:		http://www.ivrix.org.il/projects/spell-checker/
+Url:		https://www.ivrix.org.il/projects/spell-checker/
 Source0:	http://hspell.ivrix.org.il/%{name}-%{version}.tar.gz
 # Added as Source: rather than Patch: so it can be applied conditionally
 Source1:	hspell-1.4-crosscompile.patch
