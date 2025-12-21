@@ -13,6 +13,11 @@ Source0:	http://hspell.ivrix.org.il/%{name}-%{version}.tar.gz
 # Added as Source: rather than Patch: so it can be applied conditionally
 Source1:	hspell-1.4-crosscompile.patch
 Patch1:		hspell-1.2-perl-5.26.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  locales-he
 BuildRequires:  hunspell
